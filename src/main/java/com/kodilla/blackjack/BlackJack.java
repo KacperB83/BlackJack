@@ -6,15 +6,16 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class BlackJack extends Application {
 
-    private Image imageback = new Image("file:resources/table.png");
-   /* private Image card = new Image("file:resources/cards/as.png");
-    private FlowPane cards = new FlowPane(Orientation.HORIZONTAL);*/
+    private Image imageback = new Image("file:src/main/resources/table.png");
+    private Image card = new Image("file:src/main/resources/Cards/dama_karo.png");
+    private FlowPane cards = new FlowPane(Orientation.HORIZONTAL);
 
     public static void main(String[] args) {
         launch(args);
@@ -26,15 +27,18 @@ public class BlackJack extends Application {
         Background background = new Background(backgroundImage);
 
         GridPane grid = new GridPane();
-        /*grid.setAlignment(Pos.CENTER);
+        grid.setAlignment(Pos.CENTER);
         grid.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
         grid.setHgap(5.5);
-        grid.setVgap(5.5);*/
+        grid.setVgap(5.5);
         grid.setBackground(background);
 
-        /*grid.add(cards, 0,0,3,1);*/
+        ImageView img = new ImageView(card);
+        cards.getChildren().add(img);
 
-        Scene scene = new Scene(grid, 1366, 768, Color.BLACK);
+        grid.add(cards, 0,0,3,1);
+
+        Scene scene = new Scene(grid, 1360, 708, Color.BLACK);
 
         primaryStage.setTitle("BlackJack");
         primaryStage.setScene(scene);
