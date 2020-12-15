@@ -1,2 +1,6 @@
+com/kodilla/blackjack/Deck.java
+ com.kodilla.blackjack.Deck
+com/kodilla/blackjack/Hand.java
+ com.kodilla.blackjack.Hand
 com/kodilla/blackjack/BlackJack.java
  com.kodilla.blackjack.BlackJack
