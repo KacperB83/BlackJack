@@ -15,8 +15,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.awt.*;
-
 public class BlackJack extends Application {
     private final Deck deck = new Deck(1);
     private final Hand hand = new Hand();
