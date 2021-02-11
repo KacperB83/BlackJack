@@ -15,7 +15,7 @@ public class Hand {
     }
 
     public int getSoft() {
-        if(card.getRank() == 1) {
+        if(card.getRank() == 0) {
             value = 11;
         }
         return value;

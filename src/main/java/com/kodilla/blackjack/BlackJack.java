@@ -5,7 +5,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.text.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -78,7 +77,7 @@ public class BlackJack extends Application {
         drawCard(dealer, dealerCards, totalLabelDealer);
         drawCard(hand, cards, totalLabel);
 
-        status.setText("Twój ruch");
+        status.setText("Twoj ruch");
     }
 
     @Override

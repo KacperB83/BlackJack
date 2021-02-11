@@ -1,49 +1,55 @@
 package com.kodilla.blackjack;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class Deck {
 
-    private int numberOfDecks = 1;
-    private ArrayList<Card> cards;
+    private List<Card> deck;
+    private int index;
 
     public Deck(int numberOfDecks) {
-        this.numberOfDecks = numberOfDecks;
+        deck = new ArrayList<>();
+        index = 0;
 
-        for(int n = 0; n < 4; n++) {
-            for (int i = 0; i <= 13; i ++) {
-                cards.add(new Card(n, i));
+        for(int d = 0; d < numberOfDecks; d++) {
+            for (int n = 0; n < 4; n++) {
+                for (int i = 0; i < 13; i++) {
+                    Card card = new Card(n, i);
+                    addCard(card);
+                }
             }
         }
+        shuffle();
     }
 
-    public Card dealCard() {
-        return cards.remove(0);
-    }
-
-    public void restoreDeck() {
-
-    }
-
-    public void shuffle() {
-        Random random = new Random();
-        Card temp;
-        for(int i=0; i<200; i++)
-        {
-            int index1 = random.nextInt(cards.size()-1);
-            int index2 = random.nextInt(cards.size()-1);
-            temp = cards.get(index2);
-            cards.set(index2, cards.get(index1));
-            cards.set(index1, temp);
-        }
-    }
-
-    public int getNumberOfCardsRemaining() {
-        return cards.size();
+    public void addCard(Card card) {
+        deck.add(card);
     }
 
     public int getSizeOfDeck() {
-        return cards.size();
+        return deck.size();
+    }
+    public int getNumberOfCardsRemaining() {
+        return deck.size() - index;
+    }
+
+    public Card dealCard() {
+        if (index >= deck.size()) {
+            return null;
+        } else {
+            return deck.get(index++);
+        }
+    }
+
+    public void shuffle() {
+        Collections.shuffle(deck);
+    }
+    public void restoreDeck() {
+        index = 0;
     }
 }
